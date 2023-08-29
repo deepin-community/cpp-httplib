@@ -1,5 +1,118 @@
-template-repository (1.0-1) unstable; urgency=medium
+cpp-httplib (0.13.1+ds-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 0.13.1+ds
+  * d/control: libcpp-httplib0.11 -> libcpp-httplib0.13
+  * d/patches: drop upstreamed patches
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 13 Jul 2023 18:23:21 +0200
+
+cpp-httplib (0.11.4+ds-3) unstable; urgency=medium
+
+  * d/patches: use C++14 with libgtest-dev >= 1.13.0.
+    Fixes a FTBFS with the new GoogleTest in unstable.
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 13 Jul 2023 12:47:48 +0200
+
+cpp-httplib (0.11.4+ds-2) unstable; urgency=medium
+
+  * d/patches: fix fox CVE-2023-26130.
+    Backport of the security fix for CVE-2023-26130, a CRLF Injection, from
+    upstream commit 5b397d455d25a391ba346863830c1949627b4d08 included in
+    upstream release 0.12.4 and newer. (Closes: #1037100)
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 13 Jul 2023 10:16:54 +0200
+
+cpp-httplib (0.11.4+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.11.4+ds
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 12 Jan 2023 16:39:07 +0100
+
+cpp-httplib (0.11.3+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.11.3+ds
+  * d/rules: use Meson's LTO
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sat, 03 Dec 2022 14:45:23 +0100
+
+cpp-httplib (0.11.2+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.11.2+ds
+  * Upload to unstable
+  * d/patches: drop upstreamed patches
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sat, 17 Sep 2022 22:26:28 +0200
+
+cpp-httplib (0.11.1+ds-1) experimental; urgency=medium
+
+  * New upstream version 0.11.1+ds
+  * d/patches: set soname to libcpp-httplib.so.0.11
+  * d/control: libcpp-httplib0 -> libcpp-httplib0.11
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Tue, 30 Aug 2022 00:14:09 +0200
+
+cpp-httplib (0.10.8+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.10.8+ds
+  * d/control: explicitly depend on python3
+  * d/rules: skip flaky tests on specific archs
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Wed, 08 Jun 2022 22:39:14 +0200
+
+cpp-httplib (0.10.6+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.10.6+ds
+  * d/patches: drop test-unjoined-thread, add meson-version-fix
+  * d/patches: fix test failures
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Tue, 19 Apr 2022 12:47:03 +0200
+
+cpp-httplib (0.10.3+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.10.3+ds
+  * d/control: drop python3-distutils from Build-Depends
+  * d/patches: drop upstreamed patches
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 24 Feb 2022 00:33:17 +0100
+
+cpp-httplib (0.10.2+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.10.2
+  * d/control: drop python3 from Build-Depends-Arch
+  * d/patches: fix race condition in tests
+  * d/patches: add missing _Online suffix in tests
+  * d/rules: don't build tests if nocheck is set
+  * d/tests: add autopkgtest
+  * d/watch: use GitHub's API
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sat, 29 Jan 2022 23:54:10 +0100
+
+cpp-httplib (0.10.1+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.10.1
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 30 Dec 2021 10:54:41 +0100
+
+cpp-httplib (0.9.10+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.9.10
+  * d/patches: drop upstreamed patches
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Tue, 14 Dec 2021 22:49:30 +0100
+
+cpp-httplib (0.9.9+ds-1) unstable; urgency=medium
+
+  * Mark test deps with <!nochech>
+  * Switch to git-buildpackage based packaging
+  * New upstream version 0.9.9
+  * Update patches
+  * d/patches: skip online tests
+  * d/rules: add qa=+all option
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sat, 27 Nov 2021 15:21:58 +0100
+
+cpp-httplib (0.9.7+ds-1) unstable; urgency=low
+
+  * Initial release. Closes: #994547
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sun, 31 Oct 2021 20:31:25 +0100

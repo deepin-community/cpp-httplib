@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -e
+
+cd $AUTOPKGTEST_TMP
+
+cat <<EOF > main.cpp
+#include <httplib.h>
+
+#ifndef CPPHTTPLIB_OPENSSL_SUPPORT
+#	error "Missing OpenSSL support"
+#endif
+#ifndef CPPHTTPLIB_ZLIB_SUPPORT
+#	error "Missing zlib support"
+#endif
+#ifndef CPPHTTPLIB_BROTLI_SUPPORT
+#	error "Missing Brotli support"
+#endif
+
+int main() {
+	httplib::Client client("localhost", 10780);
+	httplib::SSLClient ssl_client("https://localhost:107443");
+
+	httplib::Server server;
+	httplib::SSLServer ssl_server("cert.pem", "key.pem");
+}
+EOF
+
+c++ main.cpp -Wall -Wextra -Wpedantic -Werror $(pkg-config --cflags --libs cpp-httplib)

@@ -1,0 +1,3 @@
+usr/include/httplib.h
+usr/lib/*/libcpp-httplib.so
+usr/lib/*/pkgconfig/cpp-httplib.pc

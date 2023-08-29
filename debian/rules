@@ -1,4 +1,44 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=+all,-lto qa=+all
+export DEB_CPPFLAGS_MAINT_APPEND = -DCPPHTTPLIB_USE_POLL
+
 %:
-	dh $@
+	dh $@ --buildsystem=meson
+
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+  test := true
+else
+  test := false
+endif
+
+ifeq ($(test), true)
+  test_args := --gtest_filter=-*_Online
+
+  ifeq ($(DEB_BUILD_ARCH), riscv64)
+    test_args := $(test_args):*PutLargeFileWithGzip*
+  else ifeq ($(DEB_BUILD_ARCH), armel)
+    test_args := $(test_args):*ClientProblemDetectionTest*
+  else ifeq ($(DEB_BUILD_ARCH), armhf)
+    test_args := $(test_args):*ClientProblemDetectionTest*
+  else ifeq ($(DEB_BUILD_ARCH), mipsel)
+    test_args := $(test_args):*PutLargeFileWithGzip*
+  else ifeq ($(DEB_BUILD_ARCH), hurd-i386)
+    test_args := $(test_args):*RedirectToDifferentPort*
+  else ifeq ($(DEB_BUILD_ARCH), ia64)
+    test_args := $(test_args):*DecodeURLTest*
+  else ifeq ($(DEB_BUILD_ARCH), sparc64)
+    test_args := $(test_args):*ClientProblemDetectionTest*
+  endif
+endif
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-Db_lto=true \
+		-Dcpp-httplib_compile=true \
+		-Dcpp-httplib_test=$(test)
+
+override_dh_auto_test:
+	dh_auto_test -- \
+		--timeout-multiplier=3 \
+		--test-args='$(test_args)'
