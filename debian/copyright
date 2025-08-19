@@ -4,9 +4,11 @@ Upstream-Contact: Yuji Hirose <yuji.hirose.bug@gmail.com>
 Source: https://github.com/yhirose/cpp-httplib.git
 License: Expat
 Copyright: 2012 Yuji Hirose <yuji.hirose.bug@gmail.com>
-Files-Excluded: test/gtest
+Files-Excluded: benchmark
+                test/gtest
                 test/fuzzing
-Comment: Bundled GoogleTest library
+Comment: Contains large bundled files
+         Bundled GoogleTest library
          Contains files with different licenses, unused
 
 Files: *
@@ -15,9 +17,13 @@ Copyright: 2012 Yuji Hirose <yuji.hirose.bug@gmail.com>
 
 Files: CMakeLists.txt
        cmake/FindBrotli.cmake
-       httplibConfig.cmake.in
+       cmake/httplibConfig.cmake.in
 License: Expat
 Copyright: 2020 KTGH <sum01@protonmail.com>
+
+Files: test/CMakeLists.txt
+License: Expat
+Copyright: 2023 Jiwoo Park <jiwoo_90@naver.com>
 
 Files: meson.build
        */meson.build
@@ -36,7 +42,7 @@ Copyright: 2018 David Guillen Fandos <david@davidgf.net>
 
 Files: debian/*
 License: Expat
-Copyright: 2021-2023 Andrea Pappacoda <andrea@pappacoda.it>
+Copyright: 2021-2024 Andrea Pappacoda <andrea@pappacoda.it>
 
 License: Expat
  Permission is hereby granted, free of charge, to any person obtaining a copy

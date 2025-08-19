@@ -4,7 +4,7 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=+all,-lto qa=+all
 export DEB_CPPFLAGS_MAINT_APPEND = -DCPPHTTPLIB_USE_POLL
 
 %:
-	dh $@ --buildsystem=meson
+	dh $@ --buildsystem=meson --builddir=_build
 
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
   test := true
@@ -37,6 +37,9 @@ override_dh_auto_configure:
 		-Db_lto=true \
 		-Dcpp-httplib_compile=true \
 		-Dcpp-httplib_test=$(test)
+
+execute_before_dh_auto_test:
+	cp -R test/www/日本語Dir/ _build/test/www/
 
 override_dh_auto_test:
 	dh_auto_test -- \
