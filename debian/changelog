@@ -1,3 +1,113 @@
+cpp-httplib (0.18.7-1) unstable; urgency=medium
+
+  * Update to new upstream version 0.18.7.
+  * Upload to unstable
+  * d/control: use my @debian.org email address
+  * d/rules: copy missing meson test files
+
+ -- Andrea Pappacoda <tachi@debian.org>  Tue, 11 Mar 2025 18:18:06 +0100
+
+cpp-httplib (0.18.0+ds-1) experimental; urgency=medium
+
+  * Update to new upstream version 0.18.0+ds.
+  * d/control: libcpp-httplib0.16 -> libcpp-httplib0.18
+  * d/control: apply X-Style: black
+  * d/control: add build dependency on libcurl-dev
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Tue, 17 Sep 2024 17:33:26 +0200
+
+cpp-httplib (0.16.3+ds-2) unstable; urgency=medium
+
+  * d/patches: bump minimum Meson version to 0.62.0
+  * d/patches: fix SSLClientServerTest.* tests with OpenSSL 3.2.0
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Tue, 17 Sep 2024 16:33:49 +0200
+
+cpp-httplib (0.16.3+ds-1) unstable; urgency=medium
+
+  * Update to new upstream version 0.16.3+ds.
+  * Upload to unstable
+  * d/control: declare dpkg-build-api = 1.
+    This switches the default for Rules-Requires-Root to "no", hence setting
+    it explicitly is no longer needed.
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sun, 18 Aug 2024 19:27:08 +0200
+
+cpp-httplib (0.16.0+ds-1) experimental; urgency=medium
+
+  * Update to new upstream version 0.16.0+ds.
+  * d/copyright: update CMake files info
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Tue, 09 Jul 2024 21:45:50 +0200
+
+cpp-httplib (0.15.3+ds-3) unstable; urgency=medium
+
+  * Switch to dgit-maint-debrebase(7) workflow
+  * d/gbp.conf: disable import-orig.merge.
+    Needed to switch to git-debrebase.
+  * d/README.source: document packaging workflow
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sun, 07 Jul 2024 18:27:10 +0200
+
+cpp-httplib (0.15.3+ds-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * d/patches: fix tests on 32 bit architectures
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sun, 23 Jun 2024 19:26:48 +0200
+
+cpp-httplib (0.15.3+ds-1) experimental; urgency=medium
+
+  * New upstream version 0.15.3+ds
+  * d/control: libcpp-httplib0.14t64 -> libcpp-httplib0.15
+  * d/control: build-depend on libssl-dev >= 3.0.0
+  * d/patches: use static certs for tests (Closes: #1069357, #1073440)
+  * d/s/lintian-overrides: override pkg-config => pkgconf
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Fri, 21 Jun 2024 23:18:06 +0200
+
+cpp-httplib (0.14.3+ds-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Rename libraries for 64-bit time_t transition.  Closes: #1061906
+
+ -- Steve Langasek <vorlon@debian.org>  Wed, 28 Feb 2024 17:39:39 +0000
+
+cpp-httplib (0.14.3+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.14.3+ds
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sun, 24 Dec 2023 17:57:33 +0100
+
+cpp-httplib (0.14.2+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.14.2+ds
+  * d/patches: drop upstreamed patches
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Mon, 11 Dec 2023 10:38:29 +0100
+
+cpp-httplib (0.14.1+ds-2) unstable; urgency=medium
+
+  * d/patches: update version number to 0.14.1.
+    Thanks to David James for the report! (Closes: #1056604)
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 30 Nov 2023 09:34:38 +0100
+
+cpp-httplib (0.14.1+ds-1) unstable; urgency=medium
+
+  * New upstream version 0.14.1+ds
+  * Upload to unstable
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Fri, 20 Oct 2023 20:19:31 +0200
+
+cpp-httplib (0.14.0+ds-1) experimental; urgency=medium
+
+  * New upstream version 0.14.0+ds
+  * d/control: libcpp-httplib0.13 -> libcpp-httplib0.14
+  * d/patches: drop upstreamed patches
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Mon, 11 Sep 2023 23:40:58 +0200
+
 cpp-httplib (0.13.1+ds-1) unstable; urgency=medium
 
   * New upstream version 0.13.1+ds
