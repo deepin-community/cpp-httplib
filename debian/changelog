@@ -1,3 +1,9 @@
+cpp-httplib (0.13.1+ds-1deepin1) unstable; urgency=medium
+
+  * cancel test on building
+
+ -- Liang Bo <liangbo@uniontech.com>  Fri, 05 Dec 2025 16:30:08 +0800
+
 cpp-httplib (0.13.1+ds-1) unstable; urgency=medium
 
   * New upstream version 0.13.1+ds
