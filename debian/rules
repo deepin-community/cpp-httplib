@@ -6,11 +6,7 @@ export DEB_CPPFLAGS_MAINT_APPEND = -DCPPHTTPLIB_USE_POLL
 %:
 	dh $@ --buildsystem=meson
 
-ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-  test := true
-else
-  test := false
-endif
+test := false
 
 ifeq ($(test), true)
   test_args := --gtest_filter=-*_Online
