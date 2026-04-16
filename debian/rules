@@ -6,10 +6,14 @@ export DEB_CPPFLAGS_MAINT_APPEND = -DCPPHTTPLIB_USE_POLL
 %:
 	dh $@ --buildsystem=meson
 
-test := false
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+  test := true
+else
+  test := false
+endif
 
 ifeq ($(test), true)
-  test_args := --gtest_filter=-*_Online
+  test_args := --gtest_filter=-*_Online:WebSocketIntegrationTest.SocketSettings
 
   ifeq ($(DEB_BUILD_ARCH), riscv64)
     test_args := $(test_args):*PutLargeFileWithGzip*
@@ -31,8 +35,8 @@ endif
 override_dh_auto_configure:
 	dh_auto_configure -- \
 		-Db_lto=true \
-		-Dcpp-httplib_compile=true \
-		-Dcpp-httplib_test=$(test)
+		-Dcompile=true \
+		-Dtest=$(test)
 
 override_dh_auto_test:
 	dh_auto_test -- \
