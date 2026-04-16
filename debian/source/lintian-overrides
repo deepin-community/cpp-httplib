@@ -1,0 +1,2 @@
+# https://salsa.debian.org/lintian/lintian/-/merge_requests/470#note_464198
+cpp-httplib source: build-depends-on-obsolete-package Build-Depends-Arch: pkg-config => pkgconf

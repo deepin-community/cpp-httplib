@@ -1,0 +1,15 @@
+This package follows the dgit-maint-debrebase(7) workflow.
+
+The package also follows DEP-14, so you'll find what you'd expect in the
+debian/latest and upstream/latest branches.
+
+New upstream releases are fetched from the upstream git repository from
+the "upstreamvcs" remote. Unfortunately, filtering of files listed in
+debian/copyright's Files-Excluded field has to be performed manually.
+
+As upstream does not use tarballs, a pristine-tar branch is not
+maintained.
+
+Lastly, uploads are performed using git-debpush(1).
+
+ -- Andrea Pappacoda <tachi@debian.org>  Mon, 02 Jun 2025 18:19:03 +0200
